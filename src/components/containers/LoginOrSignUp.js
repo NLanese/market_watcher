@@ -33,6 +33,8 @@ class LoginOrSignUp extends Component{
         }
     }
 
+
+    // RENDERS A FAILURE METHOD UPON INVALID LOGIN ATTEMPT
     rednerFailure(props){
         if (props.failed_attempt.failed == true){
             let msg = props.failed_attempt.message
@@ -45,6 +47,7 @@ class LoginOrSignUp extends Component{
         }
     }
 
+    // TRACKS THE USERS INPUTS FOR EITHER FIELD
     handleChange = (type, event) => {
         this.setState({
             ...this.state,
@@ -52,15 +55,27 @@ class LoginOrSignUp extends Component{
         })
     }
 
+    // THIS WILL CJHANGE THE STATE TO INSTEAD RENDER THE SIGNUP SCREEN
+    change_to_signup = (state) => {
+        return this.setState({
+            ...state, sign_in: true
+        })
+    }
+
+    // MAIN RENDER METHOD...duh
     render(){
         if (this.state.sign_in == false){
             return(
                 <div className="Login_Content_Container">
                     <p id="fail_msg">{this.rednerFailure(this.props)}</p>
-                    <p>Username: <input type="text" id="username_input" onChange={(event) => this.handleChange("username_input", event)}/></p>
-                    <p><input type="text" id="password_input" onChange={(event) => this.handleChange("password_input", event)}/></p>
-                    <button id="login_button" onClick={this.props.submitUserInfo(this.state)}>Login</button>
-                    <button id="signup_button">Create New Account!</button>
+                    <h1 className="Login_Prompt">Enter your Information</h1>
+                    <div className="login_fields">
+                        <p className="login_p">Username: <input type="text" id="username_input" onChange={(event) => this.handleChange("username_input", event)}/></p>
+                        <p className="login_p">Password: <input type="text" id="password_input" onChange={(event) => this.handleChange("password_input", event)}/></p>
+                    </div>
+                    <button id="login_button" onClick={() => this.props.submitUserInfo(this.state)}>Login</button>
+                    <p id="or">Or, if you have no account</p>
+                    <button id="signup_button" onClick={()=> this.change_to_signup(this.state)}>Create New Account!</button>
                 </div>
             )
         }

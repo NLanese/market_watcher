@@ -16,5 +16,7 @@ export default function loginAction(state){
     fetch(login_destination, login_object)
         .then(resp => resp.json())
         .then(json => console.log(json))
+    
+    return ({type: "nope"})
 
 }

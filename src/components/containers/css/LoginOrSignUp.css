@@ -1,0 +1,49 @@
+.Login_Content_Container{
+    position: absolute;
+    left: 300px;
+    top: 20px;
+    border: solid black 1px;
+    width: 400px;
+    height: 275px;
+    background-color: greenyellow;
+}
+
+.login_fields{
+    position: absolute;
+    border: lightgray solid;
+    background-color: lightgrey;
+    left: 68px;
+    top: 70px;
+}
+
+.Login_Prompt{
+    left: 28px;
+    position: absolute;
+    top: 0px;
+    text-align: center;
+}
+
+#login_button{
+    position: absolute;
+    top: 175px;
+    left: 67px;
+}
+
+#signup_button{
+    top: 250px;
+    position: absolute;
+    left: 118px;
+}
+
+#or{
+    position: absolute;
+    top: 190px;
+    left: 95px;
+}
+
+.login_p{
+    font-family: unset;
+    font-weight: 500;
+    font-stretch: expanded;
+    color: midnightblue;
+}

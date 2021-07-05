@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
   return({
-    loggedIn: state.user.isLoggedIn
+    user: state.user
   })
 }
 
@@ -20,7 +20,7 @@ login_or_app_or_loading = (props) => {
       <LoadingContainer />
     </div>
   }
-  else if (props.isLoggedIn == true){
+  else if (props.user.isLoggedIn == true){
     return(
       <div className="Master_Menu_Widnow">
         <MasterMenu />
