@@ -16,6 +16,15 @@ export default function manageUser(
                     ...state, loaidng: true
                 })
 
+            case('FAILURE'):
+                return ({
+                    ...state, failed_attempt: {failed: true, reason: action.payload}
+                })
+                
+            case('USER_LOGIN'):
+                return({
+                    ...state, failed_attempt: {failed: false, reason: null}, isLoggedIn: true
+                })
             default:
                 return ({
                     ...state

@@ -18,5 +18,5 @@ export default function signUpAction(userObj){
         .then(resp => resp.json())
         .then(json => console.log(json))
     
-    return ({type: "nope"})
+    return ({type: "USER_LOGIN"})
 }

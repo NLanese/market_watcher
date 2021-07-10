@@ -1,0 +1,12 @@
+.SignUp_Contents_Container{
+    position: absolute;
+    border: solid black 3px;
+    left: 300px;
+    top: 50px;
+}
+
+.Signup_error_msg{
+    text-align: center;
+    color: red;
+    background-color: lightyellow;
+}
