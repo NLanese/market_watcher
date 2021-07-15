@@ -11,19 +11,30 @@ export default function manageUser(
 
      }, action){
         switch(action.type){
+            // {type: LOAD_LOGIN}
             case('LOAD_LOGIN'):
                 return ({
                     ...state, loaidng: true
                 })
 
+            // {type: "FAILURE", payload: <string> }
             case('FAILURE'):
                 return ({
                     ...state, failed_attempt: {failed: true, reason: action.payload}
                 })
                 
+            // {type: "USER_LOGIN", payload: <userObj from Rails Server>}
+            // userObj will look like this...
+            //              _____________________________________________________________________________
+            //              | user:                                                                     |
+            //              |  {username: <input>, password_digest: <hidden>}                           |
+            //              | stocks:                                                                   |
+            //              |  [ <array of ints> ]                                                      |
+            //              |___________________________________________________________________________|      
+            case('USER_SIGNUP'):
             case('USER_LOGIN'):
                 return({
-                    ...state, failed_attempt: {failed: false, reason: null}, isLoggedIn: true
+    //                ...state, failed_attempt: {failed: false, reason: null}, isLoggedIn: true, loading: false, name: payload.user.username
                 })
             default:
                 return ({

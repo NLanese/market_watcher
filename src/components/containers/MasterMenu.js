@@ -1,6 +1,15 @@
+import {
+    BrowserRouter as Router,
+    Route
+  }
+from 'react-router-dom';
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import MasterMenuNavBar from './MasterMenuNavBar';
+import StockLookupMenu from './StockLookupMenu'
+import SetTargetsMenu from './SetTargetsMenu'
+import SettingsMenu from './SettingsMenu'
+import YourListMenu from './YourListMenu'
 
 const mapDispatchToProps = (dispatch) => {
 

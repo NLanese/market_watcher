@@ -1,7 +1,8 @@
 import DOMAIN from "../constants/domain"
 
 export default function loginAction(state){
-    let login_destination = DOMAIN() + "login"
+    let user = null
+    let login_destination = DOMAIN + '/login'
     let login_object = {
         method: "POST",
         headers: {
@@ -13,10 +14,15 @@ export default function loginAction(state){
             password: state.password_input
         })
     }
-    fetch(login_destination, login_object)
+    return fetch(login_destination, login_object)
         .then(resp => resp.json())
-        .then(json => console.log(json))
-    
-    return ({type: "nope"})
-
+        .then(json => user = json)
+        .then(user => {
+            if (user.includes("FAIL")){
+                return ({type: 'FAILURE', payload: user})
+            }
+            else{
+                return({type: 'USER_LOGIN', payload: user})
+            }
+        })
 }

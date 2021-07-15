@@ -1,4 +1,4 @@
-export default function manageUser(
+export default function manageStockLookup(
     state= 
         {
             searchInput: null,          // This is changed when the searchBar is submitted. It will be used to determine where we scrape, using this as a body porperty of a fetch object
@@ -6,7 +6,9 @@ export default function manageUser(
             stocks_found: [null]        // This will hold an array of all the fetched stocks found. Each different found stock will make an object that will then render a stock component
 
      }, action){
+        switch(action.case){
 
-
-    }
+            default:
+                return({...state})
+        }
 }

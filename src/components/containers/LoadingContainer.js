@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import LoadingLogin from '../loading_screens/LoadingLogin';
+import LoadingSession from '../loading_screens/LoadingSession';
 
 const mapStateToProps = (state) => {
     return({
@@ -11,7 +12,12 @@ const mapStateToProps = (state) => {
 class LoadingContainer extends Component{
 
     determineLoader = (props) => {
-        if (props.user.loading == true){
+        if (props.session.loading == true){
+            <div className="User_Fetch_Widnow">
+                <LoadingSession />
+            </div>
+        }        
+        else if (props.user.loading == true){
             <div className="User_Fetch_Widnow">
                 <LoadingLogin />
             </div>

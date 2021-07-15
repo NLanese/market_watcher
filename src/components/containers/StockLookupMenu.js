@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import StockSearchBar from '../../functional/StockSearchBar'
-import stockRenderMachine from '../../../dispatch_actions/stockRenderMachine'
+import StockSearchBar from '../functional/StockSearchBar'
+import stockRenderMachine from '../../dispatch_actions/stockRenderMachine'
 
-mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return({
         lookUp: state.stock_lookup
     })
 }
 
-mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return({
-        submitSearch: (searchInput) => {
+        submitSearch: (lookup) => {
             dispatch({type: "LOAD_STOCK_FETCH"}) // Construct this
-            dispatch(stockRenderMachine(lookUp)) // Construct a reducer action.type case that will add fecthed stock objects 
+            dispatch(stockRenderMachine(lookup)) // Construct a reducer action.type case that will add fecthed stock objects 
               
         }
     })
@@ -29,7 +29,7 @@ class StockLookupMenu extends Component{
     handleSubmit = (event) => {
         event.preventDefault()
         const lookup = event.target.value
-        this.props.submitSearch(searchInpust)
+        this.props.submitSearch(lookup)
     }
     render(){
         return(
