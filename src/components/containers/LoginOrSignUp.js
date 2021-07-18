@@ -17,6 +17,7 @@ const mapDispatchToProps = (dispatch) => {
         submitLogin: (state) => {
             dispatch(loginAction(state))
         }
+        
     })
 }
 
@@ -36,9 +37,7 @@ class LoginOrSignUp extends Component{
     rednerFailure(props){
         if (props.failed_attempt.failed == true){
             let msg = props.failed_attempt.message
-            return(
-                {msg}
-            )
+            return({msg})
         }
         else{
             return

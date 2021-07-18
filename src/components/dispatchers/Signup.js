@@ -15,9 +15,13 @@ const mapDispatchToProps = (dispatch) => {
     return({
 
         submitSignUp: (userObj) => {
-            if (userObj.obj)
-            dispatch({type: 'LOAD_LOGIN'})
-            dispatch(signUpAction(userObj))
+            if (userObj.email_input.includes("@") && userObj.email_input.includes(".")){
+                dispatch({type: 'LOAD_LOGIN'})
+                dispatch(signUpAction(userObj))
+            }
+            else{ 
+                dispatch({type: 'FAILURE', payload: "Please Enter a Valid Email"})
+            }
         },
 
         failedSignUp: (msg) => {
@@ -51,7 +55,7 @@ class Signup extends Component{
         event.preventDefault()
         if (state.username_input == null || state.email_input == null || state.password_input == null || state.check_password == null ||
             state.username_input == "" || state.email_input == "" || state.password_input == "" || state.check_password == ""){
-                this.props.failedSignUp("Please fill in all fields!")
+            this.props.failedSignUp("Please fill in all fields!")
         }
         else if (!state.email_input.includes(".com")){
             this.props.failedSignUp("Please Enter a Valid Email!")

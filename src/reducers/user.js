@@ -34,7 +34,7 @@ export default function manageUser(
             case('USER_SIGNUP'):
             case('USER_LOGIN'):
                 return({
-    //                ...state, failed_attempt: {failed: false, reason: null}, isLoggedIn: true, loading: false, name: payload.user.username
+                    ...state, failed_attempt: {failed: false, reason: null}, isLoggedIn: true, loading: false, name: action.payload.user.username
                 })
             default:
                 return ({

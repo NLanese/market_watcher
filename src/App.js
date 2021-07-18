@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 import LoadingContainer from './components/containers/LoadingContainer';
 import MasterMenu from './components/containers/MasterMenu'
 import LoginOrSignUp from './components/containers/LoginOrSignUp'
+import AppSessionFetcher from './fetchers/AppSessionFetcher';
 import { connect } from 'react-redux';
-import DOMAIN from './constants/domain';
 
 
 const mapStateToProps = (state) => {
@@ -16,26 +16,21 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return({
-    getSession: (dispatch, session_json) => {
-      if (session_json == "No current user"){
-        dispatch({type: 'COMPLETE_SESSION_FETCH'})
-      }
-      else{
-        dispatch({type: 'USER_LOGIN', payload: session_json})
-      }
+
+    getSession: () => {
+      dispatch({type: 'LOAD_SESSION'})
+      console.log('After LOAD_SESSION')
+      dispatch(AppSessionFetcher())
     }
+
   })
 }
 
 class App extends Component{
 
-  componentDidUpdate(){
-    debugger
-    dispatchEvent({type: 'LOAD_SESSION'})
-    fetch(DOMAIN + 'logged_in')
-      .then(resp => resp.json())
-      .then(json => this.props.getSession(json))
-  }
+componentDidMount = () => {
+  this.props.getSession()
+}
 
 login_or_app_or_loading = (props) => {
   if (props.user.loading == true || props.session.loading == true){

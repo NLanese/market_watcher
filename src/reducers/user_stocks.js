@@ -16,7 +16,7 @@ export default function manageUserStocks(
                 case('USER_SIGNUP'):
                 case('USER_LOGIN'):
                     return({
- //                       ...state, your_stock_ids: payload.stocks
+                        ...state, your_stock_ids: action.payload.stocks
                     })
 
                 default:

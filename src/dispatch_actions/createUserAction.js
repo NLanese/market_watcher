@@ -16,15 +16,18 @@ export default function signUpAction(userObj){
             email: userObj.email_input
         })
     }
-    return fetch(login_destination, login_object)
-        .then(resp => resp.json())
-        .then(json => user = json)
-        .then(user => {
-            if (user.includes("FAIL")){
-                return ({type: 'FAILURE', payload: user})
-            }
-            else{
-                return({type: 'USER_SIGNUP', payload: user})
-            }
-        })
+    return (dispatch) => {
+        return(
+            fetch(login_destination, login_object)
+                .then(resp => resp.json())
+                .then(json => {
+                    if (json.includes("FAIL")){
+                        dispatch({type: 'FAILURE', payload: json})
+                    }
+                    else{
+                        dispatch({type: 'USER_SIGNUP', payload: json})
+                    }
+            })
+        )
+    }
 }
