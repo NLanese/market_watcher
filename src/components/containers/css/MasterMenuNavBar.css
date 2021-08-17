@@ -1,0 +1,41 @@
+.navbar{
+    position: absolute;
+    top: 40px;
+    background-color: greenyellow;
+    height: 67px;
+    left: 280px;
+    width: 365px;
+    border: 1px solid black;
+}
+
+.navLink{
+    top: 0px;
+    width: 80px;
+    height: 28px;
+    font-weight: 600;
+    padding: 2px;
+    background-color: silver;
+    text-align: center;
+    color: midnightblue;
+    border: .5px solid black;
+
+}
+#Info{
+    position: absolute;
+    left: 10px; 
+}
+
+#YourList{
+    position: absolute;
+    left: 95px;
+}
+
+#StockLookup{
+    position: absolute;
+    left: 180px;
+}
+
+#Settings{
+    position: absolute;
+    left: 265px;
+}

@@ -48,3 +48,10 @@
     color: midnightblue;
 }
 
+#fail_msg{
+    color: red;
+    font-weight: 480;
+    position: absolute;
+    top: 260px
+}
+

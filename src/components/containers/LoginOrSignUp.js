@@ -15,7 +15,12 @@ const mapDispatchToProps = (dispatch) => {
     return({
 
         submitLogin: (state) => {
+            dispatch({type: 'LOAD_LOGIN'})
             dispatch(loginAction(state))
+        },
+
+        failedSignUp: (message) => {
+            dispatch({type: 'FAILURE', payload: message})
         }
         
     })
@@ -35,9 +40,10 @@ class LoginOrSignUp extends Component{
 
     // RENDERS A FAILURE METHOD UPON INVALID LOGIN ATTEMPT
     rednerFailure(props){
-        if (props.failed_attempt.failed == true){
-            let msg = props.failed_attempt.message
-            return({msg})
+        console.log("Inside of Render Failure method. Failed is " + props.failed_attempt.failed + " and the message is " + props.failed_attempt.message)
+        if (props.failed_attempt.failed == true){ // checks to see if there is an active failure
+            let msg = props.failed_attempt.reason // grabs the failure message
+            return(msg)
         }
         else{
             return

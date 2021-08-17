@@ -1,0 +1,44 @@
+#InfoGreet{
+    position: absolute;
+    top: 100px;
+    left: 275px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.InfoMenu_Content_Container{
+    position: absolute;
+    width: 970px;
+    left: 210px;
+    top: 0%;
+    height: 100%;
+    background-color: lightgray;
+    border-right: seagreen solid 5px;
+    border-left: seagreen solid 5px;
+}
+
+.InfoP{
+    text-align: center;
+    position: absolute;
+    width: 600px;
+    left: 170px;
+    padding: 20px;
+    background-color: lemonchiffon;
+    border: 3px solid seagreen ;
+}
+
+#IntroInfo{
+    top: 150px;
+    font-size: large;
+}
+
+#YourListInfo{
+    top: 270px;
+}
+
+#SearchInfo{
+    top: 405px
+}
+
+#SettingsInfo{
+    top: 518px
+}

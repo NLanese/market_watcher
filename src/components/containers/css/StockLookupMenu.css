@@ -1,0 +1,17 @@
+.searchResults{
+    position: absolute;
+    top: 210px;
+    left: 170px;
+    width: 600px;
+    height: 550px;
+    border: black solid;
+    background-color: darkseagreen;
+}
+#NoResult{
+    position: absolute;
+    left: 32px;
+    padding: 8px;
+    border: green solid 0.5px;
+    background-color: silver;
+    
+}
